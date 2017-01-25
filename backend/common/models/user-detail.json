@@ -1,0 +1,73 @@
+{
+  "name": "UserDetail",
+  "plural": "UserDetails",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "profilePicture": {
+      "type": "string"
+    },
+    "bio": {
+      "type": "string"
+    },
+    "phone": {
+      "type": "string"
+    },
+    "skype": {
+      "type": "string"
+    },
+    "facebook": {
+      "type": "string"
+    },
+    "email": {
+      "type": "string"
+    },
+    "refCountryId": {
+      "type": "number"
+    },
+    "refCityId": {
+      "type": "number"
+    },
+    "street": {
+      "type": "string"
+    },
+    "postalCode": {
+      "type": "string"
+    },
+    "video": {
+      "type": "string"
+    },
+    "motto": {
+      "type": "string"
+    },
+    "refUserMainId": {
+      "type": "number"
+    }
+  },
+  "validations": [],
+  "relations": {
+    "user": {
+      "type": "belongsTo",
+      "model": "UserMain",
+      "foreignKey": "refUserMainId"
+    },
+    "country": {
+      "type": "belongsTo",
+      "model": "Country",
+      "foreignKey": "refCountryId"
+    }
+  },
+  "acls": [
+    {
+      "accessType": "EXECUTE",
+      "principalType": "ROLE",
+      "principalId": "$authenticated",
+      "permission": "ALLOW",
+      "property": "create"
+    }
+  ],
+  "methods": {}
+}

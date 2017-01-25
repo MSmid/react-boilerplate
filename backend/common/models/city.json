@@ -1,0 +1,53 @@
+{
+  "name": "City",
+  "plural": "Cities",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "name": {
+      "type": "string"
+    },
+    "code": {
+      "type": "string"
+    },
+    "refCountryId": {
+      "type": "number"
+    }
+  },
+  "validations": [],
+  "relations": {
+    "userCities": {
+      "type": "hasMany",
+      "model": "User_city",
+      "foreignKey": "refCityId"
+    },
+    "CityCountry": {
+      "type": "belongsTo",
+      "model": "Country",
+      "foreignKey": "refCountryId"
+    },
+    "CityProduct": {
+      "type": "hasMany",
+      "model": "Product",
+      "foreignKey": "refCityId"
+    }
+  },
+  "acls": [
+    {
+      "accessType": "*",
+      "principalType": "ROLE",
+      "principalId": "$everyone",
+      "permission": "DENY"
+    },
+    {
+      "accessType": "READ",
+      "principalType": "ROLE",
+      "principalId": "$authenticated",
+      "permission": "ALLOW"
+    }
+  ],
+  "methods": {}
+}

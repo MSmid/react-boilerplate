@@ -1,0 +1,36 @@
+{
+  "db": {
+    "name": "db",
+    "connector": "memory"
+  },
+  "mysqlds": {
+    "name": "mysqlds",
+    "connector": "memory",
+    "note": "This is overwritten in ./datasources.local.js"
+  },
+  "mailserver": {
+    "name": "mailserver",
+    "connector": "mail",
+    "transports": [
+      {
+        "type": "SMTP",
+        "host": "smtp.gmail.com",
+        "port": 465,
+        "tls": {
+          "rejectUnauthorized": false
+        },
+        "auth": {
+          "user": "noreply.tym5@gmail.com",
+          "pass": "travelbuddy"
+        }
+      }
+    ]
+  },
+  "storage": {
+    "name": "storage",
+    "connector": "loopback-component-storage",
+    "provider": "filesystem",
+    "root": "./uploads",
+    "maxFileSize": "52428800"
+  }
+}

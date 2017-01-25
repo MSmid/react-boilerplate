@@ -1,0 +1,137 @@
+{
+  "_meta": {
+    "sources": [
+      "loopback/common/models",
+      "loopback/server/models",
+      "../common/models",
+      "./models"
+    ],
+    "mixins": [
+      "loopback/common/mixins",
+      "loopback/server/mixins",
+      "../common/mixins",
+      "./mixins"
+    ]
+  },
+  "User": {
+    "dataSource": "db"
+  },
+  "AccessToken": {
+    "dataSource": "db",
+    "public": false
+  },
+  "ACL": {
+    "dataSource": "db",
+    "public": false
+  },
+  "RoleMapping": {
+    "dataSource": "db",
+    "public": false
+  },
+  "Role": {
+    "dataSource": "db",
+    "public": false
+  },
+  "Email": {
+    "dataSource": "mailserver"
+  },
+  "Container": {
+    "dataSource": "storage",
+    "public": true
+  },
+  "File": {
+    "dataSource": "mysqlds",
+    "public": true
+  },
+  "UserMain": {
+    "dataSource": "mysqlds",
+    "public": true,
+    "options": {
+      "emailVerificationRequired": true
+    }
+  },
+  "UserDetail": {
+    "dataSource": "mysqlds",
+    "public": true
+  },
+  "UserRating": {
+    "dataSource": "mysqlds",
+    "public": true
+  },
+  "UserReview": {
+    "dataSource": "mysqlds",
+    "public": true
+  },
+  "Notification": {
+    "dataSource": "mysqlds",
+    "public": true
+  },
+  "UserProduct": {
+    "dataSource": "mysqlds",
+    "public": true
+  },
+  "User_Language": {
+    "dataSource": "mysqlds",
+    "public": true
+  },
+  "User_City": {
+    "dataSource": "mysqlds",
+    "public": true
+  },
+  "Product": {
+    "dataSource": "mysqlds",
+    "public": true
+  },
+  "Product_ProductCategory": {
+    "dataSource": "mysqlds",
+    "public": true
+  },
+  "ProductCategory": {
+    "dataSource": "mysqlds",
+    "public": true
+  },
+  "User_UserRole": {
+    "dataSource": "mysqlds",
+    "public": true
+  },
+  "UserRole": {
+    "dataSource": "mysqlds",
+    "public": true
+  },
+  "Language": {
+    "dataSource": "mysqlds",
+    "public": true
+  },
+  "City": {
+    "dataSource": "mysqlds",
+    "public": true
+  },
+  "Country": {
+    "dataSource": "mysqlds",
+    "public": true
+  },
+  "Location": {
+    "dataSource": "mysqlds",
+    "public": true
+  },
+  "TimeUnit": {
+    "dataSource": "mysqlds",
+    "public": true
+  },
+  "Connection": {
+    "dataSource": "mysqlds",
+    "public": true
+  },
+  "Message": {
+    "dataSource": "mysqlds",
+    "public": false
+  },
+  "ChatNotification": {
+    "dataSource": "mysqlds",
+    "public": true
+  },
+  "Transaction": {
+    "dataSource": "mysqlds",
+    "public": true
+  }
+}
