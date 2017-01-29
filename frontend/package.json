@@ -8,8 +8,10 @@
     "babel-jest": "^18.0.0",
     "babel-preset-es2015": "^6.18.0",
     "babel-preset-react": "^6.16.0",
+    "csso": "^2.3.1",
     "enzyme": "^2.7.0",
     "jest": "^18.1.0",
+    "node-sass": "^4.4.0",
     "react-addons-test-utils": "^15.4.2",
     "react-scripts": "0.6.0",
     "react-test-renderer": "^15.4.2",
@@ -17,20 +19,15 @@
   },
   "dependencies": {
     "axios": "^0.15.2",
-    "bcryptjs": "^2.3.0",
     "bootstrap": "^3.3.7",
     "classnames": "^2.2.5",
     "lodash": "^4.16.4",
     "loopback-connector-mysql": "^2.4.0",
-    "moment": "^2.15.2",
     "react": "^15.3.2",
-    "react-avatar-editor": "^6.0.0",
     "react-bootstrap": "^0.30.6",
-    "react-bootstrap-table": "^2.6.0",
-    "react-chatview": "^0.1.1",
-    "react-day-picker": "^3.1.1",
     "react-dom": "^15.3.2",
     "react-google-maps": "^4.11.0",
+    "react-helmet": "^4.0.0",
     "react-infinite": "^0.10.0",
     "react-input-range": "^0.9.3",
     "react-overlays": "^0.6.10",
@@ -40,17 +37,18 @@
     "react-router-scroll": "^0.3.2",
     "react-scroll": "^1.4.4",
     "react-select": "^1.0.0-rc.2",
-    "react-sparklines": "^1.6.0",
     "react-textarea-autosize": "^4.0.5",
     "redux": "^3.6.0",
-    "redux-thunk": "^2.1.0",
-    "socket.io-client": "^1.7.2"
+    "redux-thunk": "^2.1.0"
   },
   "scripts": {
     "start": "react-scripts start",
-    "build": "react-scripts build",
+    "build": "npm run build-css && npm run minify-css && react-scripts build",
     "test": "jest",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "build-css": "node-sass src/styles/sass/master.scss public/css/master.css",
+    "watch-css": "node-sass src/styles/sass/master.scss public/css/master.css -w",
+    "minify-css": "csso --input public/css/master.css --output public/css/master.css"
   },
   "proxy": "http://localhost:3001"
 }

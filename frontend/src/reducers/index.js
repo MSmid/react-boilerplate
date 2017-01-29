@@ -1,7 +1,6 @@
 import { combineReducers } from 'redux';
-import authentificationReducer from './authentificationReducer';
-import booking from '../components/Booking/reducer.js';
-import searchSection from '../components/HomePage/SearchSection/reducer.js';
+import authentificationReducer from './authentificationReducer.js';
+import { setAuthToken } from '../api.js';
 
 //Dummy action
 const dummy = (state=0, action) => {
@@ -15,10 +14,32 @@ const dummy = (state=0, action) => {
   }
 }
 
-export const containerReducer = combineReducers({
+const auth = (state = {}, action) => {
+  switch (action.type) {
+    case 'LOGIN':
+      const {
+        authToken,
+        userId,
+      } = action;
+
+      setAuthToken(authToken);
+
+      return {
+        ...state,
+        authToken,
+        userId,
+      };
+    case 'LOGOUT':
+      setAuthToken(undefined);
+      return {};
+    default:
+      return state;
+  }
+}
+
+export const rootReducer = combineReducers({
   //add reducers so they will be added to Store
- authentificationReducer,
- booking,
- dummy,
- searchSection
+ authentificationReducer, //@Dan style
+ auth, //@Heracek style
+ dummy
 });
